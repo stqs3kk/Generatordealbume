@@ -1,0 +1,136 @@
+/* Resetare stiluri implicite */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundal închis cu un gradient și o imagine de fundal */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2a2a2a, #121212); /* Gradient închis cu gri și negru */
+    color: #e0e0e0; /* Text de culoare deschisă pentru contrast */
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    animation: gradientAnimation 15s ease infinite; /* Efect de mișcare subtilă a gradientului */
+}
+
+/* Animație pentru schimbarea subtile a fundalului */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #2a2a2a, #121212);
+    }
+    50% {
+        background: linear-gradient(135deg, #4e4e4e, #121212);
+    }
+    100% {
+        background: linear-gradient(135deg, #2a2a2a, #121212);
+    }
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundal negru cu transparență pentru header */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 2.5rem;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Umbră subtilă pentru header */
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.album {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grid responsive */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.photo {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundal semitransparent alb pentru fiecare imagine */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Umbră pentru fiecare imagine */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.photo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo img:hover {
+    transform: scale(1.1); /* Efect de zoom pe imagine la hover */
+}
+
+.photo p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #f0f0f0; /* Text alb deschis pentru descriere */
+}
+
+.photo:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox - Fereastra de imagine fullscreen */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fundal negru cu transparență pentru lightbox */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Efect de hover pe fiecare fotografie */
+.lightbox-link img {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.lightbox-link img:hover {
+    transform: scale(1.05);
+}
